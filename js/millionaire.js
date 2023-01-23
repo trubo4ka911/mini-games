@@ -4,6 +4,7 @@ const getQuestion = document.querySelector("#question");
 const getAnswer = document.querySelector("#list");
 const submitBtn = document.querySelector("#submit");
 const newGameBtn = document.querySelector("#submit-new");
+const fiftyFiftyBtn = document.querySelector(".fifty-fifty");
 
 let questionIndex = 0;
 clearPage();
@@ -14,6 +15,22 @@ function clearPage() {
   getAnswer.innerHTML = "";
 }
 newGameBtn.onclick = () => history.go();
+
+// 50/50
+fiftyFiftyBtn.onclick = hideAnswers;
+
+const randomNumHelperFunc = (num) => Math.floor(Math.random() * num);
+function hideAnswers() {
+  let answer = questions[questionIndex]["answers"];
+  let correct = questions[questionIndex]["correct"];
+
+  for (el of answer) {
+    // console.log(el);
+    if (answer.indexOf(el) + 1 !== correct) {
+      document.querySelector("#submit").classList.add("hidden");
+    }
+  }
+}
 
 function showQuestion() {
   // Question
@@ -50,9 +67,9 @@ function checkAnswer(btn) {
 
   if (rightAnswer && nextQuize) {
     console.log(questionIndex);
-    if (questionIndex >= 2 && questionIndex < 3) {
-      console.log("$1000");
-    }
+    // if (questionIndex >= 2 && questionIndex < 3) {
+    //   console.log("$1000");
+    // }
     questionIndex++;
     clearPage();
     showQuestion();
