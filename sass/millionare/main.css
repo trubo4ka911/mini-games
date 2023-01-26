@@ -44,10 +44,6 @@
           justify-content: space-between;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 #submit {
   width: 300px;
   text-decoration: none;
@@ -96,6 +92,14 @@
 #submit-new {
   width: 200px;
   margin-bottom: 15px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.help-color {
+  background-color: #f1c40f;
 }
 
 .info-section {
