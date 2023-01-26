@@ -168,11 +168,12 @@
 }
 
 .prize p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border: 2px solid transparent;
 }
 
 .prize > p.current {
-  background-color: #ffff0080;
+  border: 2px solid #f1c40f;
 }
 
 #sounds {
