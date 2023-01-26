@@ -52,7 +52,12 @@
   visibility: hidden;
 }
 
-.help-color {
-  background-color: #f1c40f;
+.help-color button {
+  background-color: #f13c0f;
+}
+
+.help-color button span {
+  background-color: #f13c0f;
+  color: white !important;
 }
 /*# sourceMappingURL=btn.css.map */

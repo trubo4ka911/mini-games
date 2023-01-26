@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sass/random/random.css" />
+    <script
+      src="https://kit.fontawesome.com/cb6722e468.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="home" href="./index.html"
+      ><i class="home-icon fa-solid fa-house"></i
+    ></a>
+    <div class="wrap">
+      Length:
+      <input
+        type="range"
+        id="length"
+        value="10"
+        min="0"
+        max="10"
+        step="1"
+        oninput="rangevalue.value=value"
+      />
+      <output id="rangevalue">10</output>
+      <!-- <p>Value: <output id="value"></output></p> -->
+      <div>Min: <input type="text" id="min" value="0" /></div>
+      <div>Max: <input type="text" id="max" value="100" /></div>
+      <div>
+        <button>Push</button>
+      </div>
+      <div id="out"></div>
+      <input id="out-input" type="text" />
+    </div>
+
+    <script src="./js/random.js"></script>
+  </body>
+</html>

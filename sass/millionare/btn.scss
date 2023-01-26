@@ -51,5 +51,11 @@
 }
 
 .help-color {
-    background-color: #f1c40f;
+        button {
+        background-color: #f13c0f;
+    }
+        button span {
+        background-color: #f13c0f;
+        color: white !important;
+    }    
 }

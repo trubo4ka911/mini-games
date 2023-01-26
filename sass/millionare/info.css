@@ -30,4 +30,12 @@
 .prize p {
   margin-bottom: 20px;
 }
+
+.prize > p.current {
+  background-color: #ffff0080;
+}
+
+#sounds {
+  display: none;
+}
 /*# sourceMappingURL=info.css.map */

@@ -6,6 +6,7 @@ const submitBtn = document.querySelector("#submit");
 const newGameBtn = document.querySelector("#submit-new");
 const fiftyFiftyBtn = document.querySelector(".fifty-fifty");
 const callBtn = document.querySelector(".call-friend");
+const prize = document.querySelector(".prize");
 
 let questionIndex = 0;
 clearPage();
@@ -15,7 +16,10 @@ function clearPage() {
   getQuestion.innerHTML = "";
   getAnswer.innerHTML = "";
 }
-newGameBtn.onclick = () => history.go();
+newGameBtn.onclick = () => {
+  history.go();
+  playSound("intro");
+};
 
 // 50/50
 fiftyFiftyBtn.onclick = hideAnswers;
@@ -53,27 +57,12 @@ function call() {
   callBtn.classList.add("hidden");
   changeElement(correct);
 }
-// let answer = questions[questionIndex]["answers"];
-// let correct = questions[questionIndex]["correct"];
-// for (el of answer) {
-//   // console.log(el);
-//   if (answer.indexOf(el) + 1 === correct) {
-//     console.log(el);
-//     submitBtn.classList.add("help-color");
-//     console.log(submitBtn.classList.add("help-color"));
-//   }
-// }
-// }
+
 function changeElement(correct) {
-  // allAnswer = getRandomArbitrary(0, 4);
-  // let elementForHide = document.querySelector("#list").childNodes[allAnswer];
-  // if (allAnswer !== correct) {
-  //   elementForHide.classList.add("help-color");
-  //   console.log(elementForHide);
-  // }
   do {
     allAnswer = getRandomArbitrary(0, 4);
     let elementForHide = document.querySelector("#list").childNodes[allAnswer];
+    console.log(elementForHide);
     if (allAnswer === correct) {
       continue;
     }
@@ -115,20 +104,17 @@ function checkAnswer(btn) {
   const wrongAnswer = userAnswer !== questions[questionIndex]["correct"];
   const nextQuize = questionIndex !== questions.length - 1;
   const endQuize = questionIndex === questions.length - 1;
-  let score = questions[questionIndex]["score"];
-
+  let current = prize.querySelector(".current");
   if (rightAnswer && nextQuize) {
     console.log(questionIndex);
-    // if (questionIndex >= 2 && questionIndex < 3) {
-    //   console.log("$1000");
-    // }
+    playSound("correct-answer");
+    current && current.classList.remove("current");
+    prize.querySelectorAll("p")[14 - questionIndex].classList.add("current");
     questionIndex++;
     clearPage();
     showQuestion();
-  } else if (wrongAnswer) {
-    console.log("wrong");
-  } else if (endQuize) {
-    console.log("goodbye");
+  } else if (wrongAnswer || endQuize) {
+    current && current.classList.remove("current");
     clearPage();
     showResults();
   }
@@ -138,26 +124,36 @@ function showResults() {
   let score = questions[questionIndex]["score"];
   console.log("showRes");
   console.log(score);
+  console.log(questionIndex);
   const resultTemplate = `
           <h2 class="title">%title%</h2>
           <h3 class="summary">%message%</h3>
           <p class="result">%result%</p>
         `;
-  if (questionIndex >= 1 && questionIndex < 2) {
+  if (questionIndex >= 4 && questionIndex < 9) {
+    playSound("intro");
     title = "WINNER!!!";
     message = "NOT BAD!!!";
     result = "$1000";
     console.log("$1000");
-  } else if (questionIndex >= 2 && questionIndex < 3) {
+  } else if (questionIndex >= 9 && questionIndex < 14) {
+    playSound("intro");
     title = "WINNER!!!";
     message = "GOOD JOB!!!";
     result = "$32000";
     console.log("$32000");
-  } else if ((questionIndex = 4)) {
+  } else if (questionIndex === 14) {
+    playSound("intro");
     title = "WINNER!!!";
     message = "YOU ARE RICH!!!";
     result = "$1000000";
     console.log("$1000000");
+  } else {
+    playSound("wrong-answer");
+    title = "We are sad(((";
+    message = "Let's try again!";
+    result = "$0";
+    console.log("$0");
   }
   const finalMessage = resultTemplate
     .replace("%title%", title)
@@ -166,4 +162,15 @@ function showResults() {
   quiz.innerHTML = finalMessage;
 }
 
-// submitBtn.onclick = checkAnswer;
+// sounds
+
+function playSound(source) {
+  let element = document.getElementById(`sound-${source}`);
+  element.pause();
+  element.currentTime = 0;
+  element.play();
+}
+
+window.addEventListener("load", () => {
+  playSound("intro");
+});

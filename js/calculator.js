@@ -1,18 +1,13 @@
 let a = "";
 let b = "";
+let c = "";
 let sign = "";
 let finish = false;
 
-const digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "%"];
+const digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
 const action = ["-", "+", "x", "/"];
 
 const out = document.querySelector(".calc-screen p");
-
-document.querySelector(".plus-minus").onclick = changeSign;
-function changeSign() {
-  a = -a;
-  return (out.textContent = a);
-}
 
 function clearAll() {
   a = "";
@@ -30,14 +25,10 @@ document.querySelector(".buttons").onclick = (event) => {
   out.textContent = "";
 
   const key = event.target.textContent;
-  document.querySelector(".percent").onclick = percentNum;
-  function percentNum() {
-    a = parseFloat(a / 100);
-    console.log(a);
-    return (out.textContent = parseFloat(a));
-  }
+
   if (digit.includes(key)) {
     if (b === "" && sign === "") {
+      a = a.replace(/^0+/, "");
       a += key;
       out.textContent = a;
     } else if (a !== "" && b !== "" && finish) {
@@ -57,6 +48,43 @@ document.querySelector(".buttons").onclick = (event) => {
     console.log(sign);
     return;
   }
+  // Plus - Minus
+  if (key === "+/-") {
+    if (a) a = -a;
+    out.textContent = a;
+  }
+  // Percent
+  let percent = (a * b) / 100;
+  if (key === "%") {
+    if (b === "") b = a;
+
+    switch (sign) {
+      case "+":
+        a = +a + +percent;
+        break;
+      case "-":
+        a = a - percent;
+        break;
+      case "x":
+        a = a * percent;
+        break;
+      case "/":
+        if (b === "0") {
+          out.textContent = "Error";
+          a = "";
+          b = "";
+          sign = "";
+          return;
+        }
+        a = a / percent;
+        break;
+    }
+    finish = true;
+    out.textContent = a;
+    console.table(a, b, sign);
+  }
+
+  // Calculation
   if (key === "=") {
     if (b === "") b = a;
 
@@ -81,6 +109,7 @@ document.querySelector(".buttons").onclick = (event) => {
         a = a / b;
         break;
     }
+
     finish = true;
     out.textContent = a;
     console.table(a, b, sign);

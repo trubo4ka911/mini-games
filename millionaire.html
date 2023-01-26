@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/millionare/main.css" />
+    <script
+      src="https://kit.fontawesome.com/cb6722e468.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Millionaire game</title>
   </head>
   <body>
+    <a class="home" href="./index.html"
+      ><i class="home-icon fa-solid fa-house"></i
+    ></a>
     <div class="container d-flex">
-      <button><a href="./index.html">HOME</a></button>
       <div class="info-section">
         <div class="logo-box d-flex">
           <button id="submit-new" type="submit">
@@ -28,9 +34,6 @@
             <button id="help-submit" class="call-friend" type="submit">
               <span><i class="fa-solid fa-phone"></i></span>
             </button>
-            <!-- <p>50:50</p>
-            <p><i class="fa-solid fa-phone"></i></p>
-            <p><i class="fa-solid fa-users"></i></p> -->
           </div>
           <div class="prize">
             <p class="unlost"><span>15</span> $1,000,000</p>
@@ -83,11 +86,25 @@
         </ul>
       </div>
     </div>
+    <!-- Sounds -->
 
-    <script
-      src="https://kit.fontawesome.com/cb6722e468.js"
-      crossorigin="anonymous"
-    ></script>
+    <div id="sounds">
+      <audio id="sound-intro">
+        <source src="sounds/intro.mp3" type="audio/ogg" />
+      </audio>
+
+      <audio id="sound-new-game">
+        <source src="sounds/new-game.mp3" type="audio/ogg" />
+      </audio>
+
+      <audio id="sound-correct-answer">
+        <source src="sounds/correct-answer.mp3" type="audio/ogg" />
+      </audio>
+
+      <audio id="sound-wrong-answer">
+        <source src="sounds/wrong-answer.mp3" type="audio/ogg" />
+      </audio>
+    </div>
     <script src="./js/questions.js"></script>
     <script src="./js/millionaire.js"></script>
   </body>
