@@ -1,10 +1,3 @@
-// const value = document.querySelector("#value");
-// const input = document.querySelector("#length");
-// value.textContent = input.value;
-// input.addEventListener("input", (event) => {
-//   value.textContent = event.target.value;
-// });
-
 const rangeInputs = document.querySelectorAll('input[type="range"]');
 function handleInputChange(e) {
   let target = e.target;
