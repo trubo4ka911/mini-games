@@ -17,6 +17,12 @@ function clearAll() {
   out.textContent = 0;
 }
 
+function formatOut(str, maxLength) {
+  let res;
+  res = str.length <= maxLength ? (res = str) : str.slice(0, maxLength);
+  return res;
+}
+
 document.querySelector(".ac").onclick = clearAll;
 
 document.querySelector(".buttons").onclick = (event) => {
@@ -29,6 +35,7 @@ document.querySelector(".buttons").onclick = (event) => {
   if (digit.includes(key)) {
     if (b === "" && sign === "") {
       a = a.replace(/^0+/, "");
+      a = formatOut(a, 7);
       a += key;
       out.textContent = a;
     } else if (a !== "" && b !== "" && finish) {
@@ -37,6 +44,7 @@ document.querySelector(".buttons").onclick = (event) => {
       out.textContent = b;
     } else {
       b += key;
+      b = formatOut(b, 7);
       out.textContent = b;
     }
     console.log(a, b, sign);
@@ -109,7 +117,6 @@ document.querySelector(".buttons").onclick = (event) => {
         a = a / b;
         break;
     }
-
     finish = true;
     out.textContent = a;
     console.table(a, b, sign);

@@ -74,4 +74,11 @@
 .summary {
   margin: 20px 0;
 }
+
+.result {
+  font-family: "Paytone One";
+  font-size: 80px;
+  color: #f1c40f;
+  text-shadow: 0 13.36px 8.896px #576baf, 0 -2px 1px #fff;
+}
 /*# sourceMappingURL=millioner.css.map */

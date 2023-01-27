@@ -1,10 +1,9 @@
-// const URL =
-//   "https://raw.githubusercontent.com/aaronnech/Who-Wants-to-Be-a-Millionaire/master/questions.json";
 const getQuestion = document.querySelector("#question");
 const getAnswer = document.querySelector("#list");
 const submitBtn = document.querySelector("#submit");
 const newGameBtn = document.querySelector("#submit-new");
 const fiftyFiftyBtn = document.querySelector(".fifty-fifty");
+const peopleBtn = document.querySelector(".people");
 const callBtn = document.querySelector(".call-friend");
 const prize = document.querySelector(".prize");
 
@@ -44,6 +43,7 @@ function disableElement(correct) {
     }
   } while (checkFlag < 2);
 }
+
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
@@ -73,6 +73,24 @@ function changeElement(correct) {
   } while (checkFlag2 < 3);
 }
 
+// people
+peopleBtn.onclick = people;
+function people() {
+  let correct = questions[questionIndex]["correct"] - 1;
+  peopleBtn.classList.add("hidden");
+  changeEl(correct);
+}
+
+function changeEl(correct) {
+  allAnswer = getRandomArbitrary(0, 4);
+  let elementForHide = document.querySelector("#list").childNodes[allAnswer];
+  if (allAnswer === correct) {
+    if (!elementForHide.classList.contains("people-color")) {
+      elementForHide.classList.add("people-color");
+    }
+  }
+}
+
 function showQuestion() {
   // Question
   const headerTemplate = `<h2 class="title">%title%</h2>`;
@@ -92,12 +110,11 @@ function showQuestion() {
     const answerHTML = questionTemplate
       .replace("%answer%", answerText)
       .replace("%number%", answerNumber);
-    // console.log(answerHTML);
     getAnswer.innerHTML += answerHTML;
     answerNumber++;
   }
 }
-
+// Answer check
 function checkAnswer(btn) {
   const userAnswer = parseInt(btn.value);
   const rightAnswer = userAnswer === questions[questionIndex]["correct"];
@@ -119,7 +136,7 @@ function checkAnswer(btn) {
     showResults();
   }
 }
-
+// Result
 function showResults() {
   let score = questions[questionIndex]["score"];
   console.log("showRes");

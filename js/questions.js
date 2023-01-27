@@ -1,12 +1,12 @@
 const questions = [
   {
-    question: "Какой язык работает в браузере?",
+    question: "Яка мова працює у браузері?",
     answers: ["Java", "C", "Python", "JavaScript"],
     correct: 4,
     score: "$100",
   },
   {
-    question: "Что означает CSS?",
+    question: "Що означає CSS?",
     answers: [
       "Central Style Sheets",
       "Cascading Style Sheets",
@@ -17,7 +17,7 @@ const questions = [
     score: "$200",
   },
   {
-    question: "Что означает HTML?",
+    question: "Що означає HTML?",
     answers: [
       "Hypertext Markup Language",
       "Hypertext Markdown Language",
@@ -28,19 +28,19 @@ const questions = [
     score: "$300",
   },
   {
-    question: "В каком году был создан JavaScript?",
-    answers: ["1996", "1995", "1994", "все ответы неверные"],
+    question: "У якому році було створено JavaScript?",
+    answers: ["1996", "1995", "1994", "всі відповіді невірні"],
     correct: 2,
     score: "$500",
   },
   {
-    question: "Какой язык работает в браузере?",
-    answers: ["Java", "C", "Python", "JavaScript"],
-    correct: 4,
+    question: "Якої події не існує для addEventListener?",
+    answers: ["click", "submit", "enter", "focus"],
+    correct: 3,
     score: "$1000",
   },
   {
-    question: "Что означает CSS?",
+    question: "Що означає CSS?",
     answers: [
       "Central Style Sheets",
       "Cascading Style Sheets",
@@ -51,7 +51,7 @@ const questions = [
     score: "$2000",
   },
   {
-    question: "Что означает HTML?",
+    question: "Що означає HTML?",
     answers: [
       "Hypertext Markup Language",
       "Hypertext Markdown Language",
@@ -62,19 +62,19 @@ const questions = [
     score: "$4000",
   },
   {
-    question: "В каком году был создан JavaScript?",
-    answers: ["1996", "1995", "1994", "все ответы неверные"],
+    question: "У якому році було створено JavaScript?",
+    answers: ["1996", "1995", "1994", "всі відповіді невірні"],
     correct: 2,
     score: "$8000",
   },
   {
-    question: "Какой язык работает в браузере?",
+    question: "Яка мова працює у браузері?",
     answers: ["Java", "C", "Python", "JavaScript"],
     correct: 4,
     score: "$16000",
   },
   {
-    question: "Что означает CSS?",
+    question: "Що означає CSS?",
     answers: [
       "Central Style Sheets",
       "Cascading Style Sheets",
@@ -85,24 +85,19 @@ const questions = [
     score: "$32000",
   },
   {
-    question: "Что означает HTML?",
-    answers: [
-      "Hypertext Markup Language",
-      "Hypertext Markdown Language",
-      "Hyperloop Machine Language",
-      "Helicopters Terminals Motorboats Lamborginis",
-    ],
-    correct: 1,
+    question: "Якої події не існує для addEventListener?",
+    answers: ["click", "submit", "enter", "focus"],
+    correct: 3,
     score: "$64000",
   },
   {
-    question: "В каком году был создан JavaScript?",
-    answers: ["1996", "1995", "1994", "все ответы неверные"],
+    question: "У якому році було створено JavaScript?",
+    answers: ["1996", "1995", "1994", "всі відповіді невірні"],
     correct: 2,
     score: "$125000",
   },
   {
-    question: "Что означает CSS?",
+    question: "Що означає CSS?",
     answers: [
       "Central Style Sheets",
       "Cascading Style Sheets",
@@ -113,7 +108,7 @@ const questions = [
     score: "$250000",
   },
   {
-    question: "Что означает HTML?",
+    question: "Що означає HTML?",
     answers: [
       "Hypertext Markup Language",
       "Hypertext Markdown Language",
@@ -124,9 +119,9 @@ const questions = [
     score: "$500000",
   },
   {
-    question: "В каком году был создан JavaScript?",
-    answers: ["1996", "1995", "1994", "все ответы неверные"],
-    correct: 2,
+    question: "Якої події не існує для addEventListener?",
+    answers: ["click", "submit", "enter", "focus"],
+    correct: 3,
     score: "$1000000",
   },
 ];

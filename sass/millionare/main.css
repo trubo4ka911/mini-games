@@ -75,6 +75,13 @@
   margin: 20px 0;
 }
 
+.result {
+  font-family: "Paytone One";
+  font-size: 80px;
+  color: #f1c40f;
+  text-shadow: 0 13.36px 8.896px #576baf, 0 -2px 1px #fff;
+}
+
 #submit {
   width: 300px;
   text-decoration: none;
@@ -136,6 +143,14 @@
 .help-color button span {
   background-color: #f13c0f;
   color: white !important;
+}
+
+.people-color button {
+  background-color: #008948;
+}
+
+.people-color button span {
+  background-color: #008948;
 }
 
 .info-section {

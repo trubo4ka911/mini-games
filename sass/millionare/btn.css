@@ -60,4 +60,12 @@
   background-color: #f13c0f;
   color: white !important;
 }
+
+.people-color button {
+  background-color: #008948;
+}
+
+.people-color button span {
+  background-color: #008948;
+}
 /*# sourceMappingURL=btn.css.map */
