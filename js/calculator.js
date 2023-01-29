@@ -87,15 +87,15 @@ document.querySelector(".buttons").onclick = (event) => {
         a = a / percent;
         break;
     }
+
     finish = true;
-    out.textContent = a;
+    out.textContent = a.toPrecision(5);
     console.table(a, b, sign);
   }
 
   // Calculation
   if (key === "=") {
     if (b === "") b = a;
-
     switch (sign) {
       case "+":
         a = +a + +b;
@@ -117,8 +117,10 @@ document.querySelector(".buttons").onclick = (event) => {
         a = a / b;
         break;
     }
+
     finish = true;
-    out.textContent = a;
+
+    out.textContent = a.toPrecision(5);
     console.table(a, b, sign);
   }
 };

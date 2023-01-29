@@ -75,19 +75,13 @@ function changeElement(correct) {
 
 // people
 peopleBtn.onclick = people;
+let answers = document.querySelectorAll("#list > li button");
 function people() {
-  let correct = questions[questionIndex]["correct"] - 1;
   peopleBtn.classList.add("hidden");
-  changeEl(correct);
-}
-
-function changeEl(correct) {
-  allAnswer = getRandomArbitrary(0, 4);
-  let elementForHide = document.querySelector("#list").childNodes[allAnswer];
-  if (allAnswer === correct) {
-    if (!elementForHide.classList.contains("people-color")) {
-      elementForHide.classList.add("people-color");
-    }
+  for (let i = 0; i < 4; i++) {
+    let colors = ["red", "green", "blue", "yellow"];
+    answers[i].style.borderColor =
+      colors[Math.floor(Math.random() * colors.length)];
   }
 }
 
@@ -180,14 +174,12 @@ function showResults() {
 }
 
 // sounds
-
 function playSound(source) {
   let element = document.getElementById(`sound-${source}`);
   element.pause();
   element.currentTime = 0;
   element.play();
 }
-
 window.addEventListener("load", () => {
   playSound("intro");
 });
