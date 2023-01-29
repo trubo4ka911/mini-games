@@ -5,7 +5,7 @@
     overflow: hidden;
     background-color: #1b2631;
     color: azure;
-    span, i, h2 {color:#f1c40f};
+    span, i, h2 {color:$gold};
     button {cursor: pointer}
 }
 .d-flex{
@@ -24,9 +24,9 @@
 }
 
 .home {
-            position: absolute;
-                top: 0;
-                left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: inline-block;
     text-align: center;
     color: gray;
@@ -59,6 +59,6 @@
 .result {
     font-family: "Paytone One";
     font-size: 80px;
-    color: #f1c40f;
+    color: $gold;
     text-shadow: 0 13.36px 8.896px #576baf, 0 -2px 1px #fff;
 }
